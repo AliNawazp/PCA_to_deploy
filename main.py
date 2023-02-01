@@ -26,9 +26,9 @@ import seaborn as sns
 from scipy.linalg import eigh
 from sklearn.preprocessing import StandardScaler
 
-x = pd.read_csv("ali.csv")
+data = pd.read_csv("ali.csv")
 labels=x["label"]
-x.drop("label",axis=1,inplace=True)
+data.drop("label",axis=1,inplace=True)
 
 
 
