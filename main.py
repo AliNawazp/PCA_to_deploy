@@ -10,6 +10,7 @@ from sklearn.preprocessing import StandardScaler
 
 
 st.write('''# Hello world ''')
+st.write('''# This is Ali Nawaz''')
 
 st.write('''# PCA (Principle Component Analysis) is beautiful idea to visualize in 2d or 3d
 ##### Today we are going to perforn PCA without using sklearn
@@ -56,6 +57,7 @@ dataframe = pd.DataFrame({"1st_principal":data_2d[:,:1].flatten(),"2nd_principal
 fig=plt.figure()
 sns.scatterplot(data=dataframe,hue="label",x="1st_principal",y="2nd_principal",palette=sns.color_palette("husl", 10))
 st.pyplot(fig)
+st.write('''# Thank YOU''')
 
 
 
