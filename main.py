@@ -27,18 +27,15 @@ from scipy.linalg import eigh
 from sklearn.preprocessing import StandardScaler
 
 data = pd.read_csv("ali.csv")
-labels=x["label"]
+labels=data["label"]
 data.drop("label",axis=1,inplace=True)
 
 
-
 standardized_data = StandardScaler().fit_transform(data)
-covar_matrix = np.matmul(standardized_data.T , standardized_data) #covariance
+covar_matrix = np.matmul(standardized_data.T , standardized_data)
 values, vectors = eigh(covar_matrix, eigvals=(782,783))
 data_2d = np.matmul(standardized_data,vectors)
-
 dataframe = pd.DataFrame({"1st_principal":data_2d[:,:1].flatten(),"2nd_principal":data_2d[:,1:].flatten(),"label":labels})
-warnings.filterwarnings('ignore')
 fig=plt.figure()
 sns.scatterplot(data=dataframe,hue="label",x="1st_principal",y="2nd_principal",palette=sns.color_palette("husl", 10))
 '''
@@ -47,7 +44,7 @@ st.code(code,language="python")
 st.write('''# Output in 2d''')
 
 data = pd.read_csv("ali.csv")
-labels=x["label"]
+labels=data["label"]
 data.drop("label",axis=1,inplace=True)
 
 
