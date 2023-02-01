@@ -26,12 +26,10 @@ import seaborn as sns
 from scipy.linalg import eigh
 from sklearn.preprocessing import StandardScaler
 
-x = pd.read_csv("train.csv")
-y=x["label"]
+x = pd.read_csv("ali.csv")
+labels=x["label"]
 x.drop("label",axis=1,inplace=True)
 
-labels = y.head(15000)
-data = x.head(15000)
 
 
 standardized_data = StandardScaler().fit_transform(data)
