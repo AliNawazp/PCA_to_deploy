@@ -46,12 +46,11 @@ sns.scatterplot(data=dataframe,hue="label",x="1st_principal",y="2nd_principal",p
 st.code(code,language="python")
 st.write('''# Output in 2d''')
 
-x = pd.read_csv("train.csv")
-y=x["label"]
-x.drop("label",axis=1,inplace=True)
+data = pd.read_csv("ali.csv")
+labels=x["label"]
+data.drop("label",axis=1,inplace=True)
 
-labels = y.head(15000)
-data = x.head(15000)
+
 standardized_data = StandardScaler().fit_transform(data)
 covar_matrix = np.matmul(standardized_data.T , standardized_data)
 values, vectors = eigh(covar_matrix, eigvals=(782,783))
